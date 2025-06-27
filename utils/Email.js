@@ -6,15 +6,15 @@ try {
     const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: "deepakmaurya2211@gmail.com",
-    pass: "mbshinozqrwfubuc",
+    user: process.env.EMAIL,
+    pass: process.env.PSSWORD,
   },
 });
     
     // Wrap in an async IIFE so we can use await.
     (async () => {
       const info = await transporter.sendMail({
-        from: 'deepakmaurya2211@gmail.com',
+        from: process.env.EMAIL,
         to: email,
         subject: "Reset Password?",
         text: "Hello world?",
